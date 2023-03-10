@@ -1,0 +1,25 @@
+appId: appid
+productName: name
+artifactName: product-${version}.${ext}
+buildDependenciesFromSource: true
+generateUpdatesFilesForAllChannels: true
+directories:
+  output: build
+files:
+  - filter:
+      - .output/**/*
+      - dist-electron
+mac:
+  target:
+    target: dmg
+    arch:
+      - universal
+linux:
+  icon: build/icons/main
+  target: AppImage
+  category: Utility
+win:
+  target:
+    - target: nsis
+nsis:
+  oneClick: false

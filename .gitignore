@@ -1,0 +1,40 @@
+# Environment variables
+.env
+
+# Dependencies
+node_modules
+vendor
+
+# Output
+.nuxt
+.output
+build/*
+!build/icons
+dist
+dist-electron
+
+# Jekyll
+_site
+.jekyll-cache
+.jekyll-metadata
+
+# Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# sql.js / pdf.js
+src/public/sql-wasm.wasm
+src/public/pdf.worker*
+
+# MacOS
+.DS_Store
+
+# Playwright
+img
+playwright-report
+test-results
