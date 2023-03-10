@@ -16,8 +16,8 @@ import { initMainWindow } from './mainWindow'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config()
 const isDev = process.env.NODE_ENV === 'development'
-export const appShortName = 'M³'
-export const appLongName = 'Meeting Media Manager'
+export const appShortName = 'name'
+export const appLongName = 'product long name'
 export const AR_WIDTH = 16
 export const AR_HEIGHT = 9
 
@@ -47,7 +47,7 @@ if (initSentry) {
     environment: isDev ? 'development' : 'production',
     dist: platform().replace('32', ''),
     enabled: !process.env.SENTRY_DISABLE,
-    release: `meeting-media-manager@${
+    release: `mproduct@${
       isDev || !process.env.CI ? 'dev' : app.getVersion()
     }`,
     dsn: process.env.SENTRY_DSN,
@@ -56,12 +56,6 @@ if (initSentry) {
 
 // Initialize the store
 initRenderer()
-
-// Disable hardware acceleration if the user turned it off
-try {
-  if (existsSync(join(app.getPath('userData'), 'disableHardwareAcceleration')))
-    app.disableHardwareAcceleration()
-} catch (err) {}
 
 let win: BrowserWindow
 let winHandler: BrowserWinHandler
@@ -74,45 +68,6 @@ async function boot() {
     installExtension('nhdogjmejiglipccpnnnanhbledajbpd')
     win.webContents.openDevTools({ mode: 'detach' })
   }
-
-  session.defaultSession.webRequest.onBeforeSendHeaders(
-    { urls: ['*://*.jw.org/*'] },
-    (details, resolve) => {
-      let cookies = 'ckLang=E;'
-      if (details.requestHeaders.cookie) {
-        cookies += ' ' + details.requestHeaders.cookie
-      } else if (details.requestHeaders.Cookie) {
-        cookies += ' ' + details.requestHeaders.Cookie
-      }
-      details.requestHeaders = {
-        ...details.requestHeaders,
-        Cookie: cookies,
-        'User-Agent': details.requestHeaders['User-Agent'].replace(
-          /Electron\/\d+\.\d+\.\d+ /,
-          ''
-        ),
-      }
-      resolve({ requestHeaders: details.requestHeaders })
-    }
-  )
-
-  session.defaultSession.webRequest.onHeadersReceived(
-    { urls: ['*://*.jw.org/*'] },
-    (details, resolve) => {
-      if (!details.responseHeaders) details.responseHeaders = {}
-      details.responseHeaders['x-frame-options'] = ['ALLOWALL']
-      details.responseHeaders['content-security-policy'] = []
-      const setCookie = details.responseHeaders['set-cookie']
-      if (setCookie) {
-        details.responseHeaders['set-cookie'] = setCookie.map((c) =>
-          c
-            .replace('HttpOnly', 'Secure')
-            .replace('Secure', 'SameSite=None; Secure')
-        )
-      }
-      resolve({ responseHeaders: details.responseHeaders })
-    }
-  )
 
   app.on('window-all-closed', () => {
     app.exit()
