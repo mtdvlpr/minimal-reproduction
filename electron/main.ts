@@ -1,11 +1,9 @@
 /* eslint-disable import/named */
 import { platform } from 'os'
 import { join } from 'path'
-import { existsSync } from 'fs'
 import {
   app,
   BrowserWindow,
-  session,
 } from 'electron'
 import { init } from '@sentry/electron'
 import { initRenderer } from 'electron-store'

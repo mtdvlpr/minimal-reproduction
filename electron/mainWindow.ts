@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain, screen, globalShortcut } from 'electron'
+import { BrowserWindow } from 'electron'
 import windowStateKeeper from 'electron-window-state'
 import { appLongName } from './main'
 import BrowserWinHandler from './BrowserWinHandler'
