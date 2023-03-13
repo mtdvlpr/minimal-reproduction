@@ -1,5 +1,7 @@
 <template>
-  <NuxtWelcome />
+  <div>
+    <NuxtPage />
+  </div>
 </template>
 <script setup lang="ts">
 import { existsSync } from 'fs-extra';

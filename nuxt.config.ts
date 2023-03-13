@@ -15,14 +15,14 @@ export default defineNuxtConfig({
     build: {
       target: 'chrome110',
     },
-    plugins: [
-      renderer({
-        nodeIntegration: true,
-        optimizeDeps: {
-          include: ['fs-extra', 'upath'],
-        },
-      }),
-    ],
+  },
+  electron: {
+    renderer: {
+      nodeIntegration: true,
+      optimizeDeps: {
+        include: ['fs-extra', 'upath'],
+      },
+    }
   },
   typescript: { shim: false, typeCheck: true },
 })

@@ -1235,7 +1235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.2.3, @nuxt/kit@npm:^3.0.0, @nuxt/kit@npm:^3.2.0":
+"@nuxt/kit@npm:3.2.3, @nuxt/kit@npm:^3.2.0":
   version: 3.2.3
   resolution: "@nuxt/kit@npm:3.2.3"
   dependencies:
@@ -1700,22 +1700,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
-  languageName: node
-  linkType: hard
-
-"@types/lodash-es@npm:^4.17.6":
-  version: 4.17.6
-  resolution: "@types/lodash-es@npm:4.17.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 9bd239dd525086e278821949ce12fbdd4f100a060fed9323fc7ad5661113e1641f28a7ebab617230ed3474680d8f4de705c1928b48252bb684be6ec9eed715db
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*":
-  version: 4.14.191
-  resolution: "@types/lodash@npm:4.14.191"
-  checksum: ba0d5434e10690869f32d5ea49095250157cae502f10d57de0a723fd72229ce6c6a4979576f0f13e0aa9fbe3ce2457bfb9fa7d4ec3d6daba56730a51906d1491
   languageName: node
   linkType: hard
 
@@ -5580,13 +5564,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
-  languageName: node
-  linkType: hard
-
 "lodash._reinterpolate@npm:^3.0.0":
   version: 3.0.0
   resolution: "lodash._reinterpolate@npm:3.0.0"
@@ -5958,8 +5935,7 @@ __metadata:
     esbuild: ^0.17.11
     fs-extra: ^11.1.0
     nuxt: ^3.2.3
-    nuxt-electron: 0.4.1
-    nuxt-lodash: ^2.4.1
+    nuxt-electron: ^0.4.2
     typescript: ^4.9.5
     upath: ^2.0.1
     vite: ^4.1.4
@@ -6481,24 +6457,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-electron@npm:0.4.1":
-  version: 0.4.1
-  resolution: "nuxt-electron@npm:0.4.1"
+"nuxt-electron@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "nuxt-electron@npm:0.4.2"
   peerDependencies:
     esbuild: "*"
     vite-electron-plugin: "*"
-  checksum: 98c0875efde55d4e6fbd83a7ccffe05b105cbb986f03ec8caecc715e68b9f1ccdaaf7c282b9247edee24efe98eb0893fcda24be1ef1338ddfdbd8a06727f302f
-  languageName: node
-  linkType: hard
-
-"nuxt-lodash@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "nuxt-lodash@npm:2.4.1"
-  dependencies:
-    "@nuxt/kit": ^3.0.0
-    "@types/lodash-es": ^4.17.6
-    lodash-es: ^4.17.21
-  checksum: b7ffa7c182da035a1b3c25cf526b149be8107d65cef23f0aee8f0d32d325153119ac09fbe2d68d162d360160ff78a822896ef1023a22fa2d28900d376d8ab9e1
+    vite-plugin-electron-renderer: "*"
+  peerDependenciesMeta:
+    esbuild:
+      optional: true
+    vite-plugin-electron-renderer:
+      optional: true
+  checksum: 1d388a5ae5b0015ef1666cf8bd2a1f963e4e2afdb2f4cb59d9f5c103fb6c50ba97aef2cbeb8e2714494071803529e1b616bf7c11959c71774f6bd9a8324c69d2
   languageName: node
   linkType: hard
 
